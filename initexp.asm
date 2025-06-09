@@ -1,10 +1,10 @@
 ;   ********************************************************************************************
-;   *** INITEXP is a boot program for Minimal64x4. Testing presence of an Exansion Board.    ***
+;   *** INITEXP is a boot-up program for Minimal64x4. Testing presence of an Expansion card. ***
 ;   *** If found: initializes SN76489 chip by muting all channels, displays text message,    ***
 ;   *** plays beep and blinking LED for 0.1s. Initexp should be called by "autostart" file   ***
 ;   *** Programmed by Mateusz Matysiak (Hellboy73)                                           ***
 ;   *** parts of the code taken and reused from routines provided by Hans61                  ***
-;   *** Expansion Board by Hans61 https://github.com/hans61/Minimal-64x4-Expansion           ***
+;   *** Expansion by Hans61 https://github.com/hans61/Minimal-64x4-Expansion                 ***
 ;   *** Change log:                                                                          ***
 ;   *** v1.0 09.06.2025 initial working version                                              ***
 ;   ********************************************************************************************
