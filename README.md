@@ -9,7 +9,7 @@ Parts of the code taken and reused from routines provided by Hans61
 
 Credits:
 
-Expansion Board by Hans61 https://github.com/hans61/Minimal-64x4-Expansion 
+Expansion card by Hans61 https://github.com/hans61/Minimal-64x4-Expansion 
 
 Minimal64x4 computer by Slu4 https://github.com/slu4coder/Minimal-64x4-Home-Computer
 
