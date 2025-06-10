@@ -1,12 +1,11 @@
 ;   ********************************************************************************************
-;   *** INITEXP is a boot-up program for Minimal64x4. Testing presence of an Expansion card. ***
+;   *** INITEXP is a boot program for Minimal64x4. Testing presence of an Expansion Board.   ***
 ;   *** If found: initializes SN76489 chip by muting all channels, displays text message,    ***
 ;   *** plays beep and blinking LED for 0.1s. Initexp should be called by "autostart" file   ***
-;   *** Programmed by Mateusz Matysiak (Hellboy73)                                           ***
+;   *** Programmed by Mateusz Matysiak (Hellboy73) 09.06.2025                                ***
 ;   *** parts of the code taken and reused from routines provided by Hans61                  ***
-;   *** Expansion by Hans61 https://github.com/hans61/Minimal-64x4-Expansion                 ***
-;   *** Change log:                                                                          ***
-;   *** v1.0 09.06.2025 initial working version                                              ***
+;   *** Expansion card by Hans61 https://github.com/hans61/Minimal-64x4-Expansion            ***
+;   *** Minimal64x4 computer by Slu4 https://github.com/slu4coder/Minimal-64x4-Home-Computer ***
 ;   ********************************************************************************************
 #org 0x2000
 start:  JPS VS_detect                       ; determine if VS signal can be read (i.e. expansion card present)
@@ -83,38 +82,6 @@ wrSN76489:  STB sn76489
 #org 0xfee1 vsync:   ; 4HC574 input Kempston, bit6 = vsync
 #org 0xfee2 cs1sn:   ; bit 0 = 1 -> /CS = 0 | bit 0 = 0 -> /CS = 1, bit0 = sd-card bit1 = sn76489
 #org 0xfee3 spi:     ; address for reading and writing the spi shift register, writing starts the beat
-
-#org 0xf000 _Start:
-#org 0xf003 _Prompt:
-#org 0xf006 _MemMove:
-#org 0xf009 _Random:
-#org 0xf00c _ScanPS2:
-#org 0xf00f _ResetPS2:
-#org 0xf012 _ReadInput:
-#org 0xf015 _WaitInput:
-#org 0xf018 _ReadLine:
-#org 0xf01b _SkipSpace:
-#org 0xf01e _ReadHex:
-#org 0xf021 _SerialWait:
-#org 0xf024 _SerialPrint:
-#org 0xf027 _FindFile:
-#org 0xf02a _LoadFile:
-#org 0xf02d _SaveFile:
-#org 0xf030 _ClearVRAM:
-#org 0xf033 _Clear:
-#org 0xf036 _ClearRow:
-#org 0xf039 _ScrollUp:
-#org 0xf03c _ScrollDn:
-#org 0xf03f _Char:
-#org 0xf042 _PrintChar:
 #org 0xf045 _Print:
-#org 0xf048 _PrintHex:
-#org 0xf04b _Pixel:
-#org 0xf04e _Line:
-#org 0xf051 _Rect:
 #org 0x00c0 _XPos:
 #org 0x00c1 _YPos:
-#org 0x00c2 _RandomState:
-#org 0x00c6 _ReadNum:
-#org 0x00c9 _ReadPtr:
-#org 0x00cd _ReadBuffer:
