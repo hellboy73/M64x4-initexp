@@ -2,7 +2,7 @@
 ;   *** INITEXP is a boot program for Minimal64x4. Testing presence of an Expansion Board.   ***
 ;   *** If found: initializes SN76489 chip by muting all channels, displays text message,    ***
 ;   *** plays beep and blinking LED for 0.1s. Initexp should be called by "autostart" file   ***
-;   *** Programmed by Mateusz Matysiak (Hellboy73) 09.06.2025                                ***
+;   *** Programmed by Mateusz Matysiak 09.06.2025 https://github.com/hellboy73               ***
 ;   *** parts of the code taken and reused from routines provided by Hans61                  ***
 ;   *** Expansion card by Hans61 https://github.com/hans61/Minimal-64x4-Expansion            ***
 ;   *** Minimal64x4 computer by Slu4 https://github.com/slu4coder/Minimal-64x4-Home-Computer ***
@@ -35,8 +35,7 @@ Exp_not_present:
 ;   ***************************************************************
 VS_counter: 5400
 VS_present: 0
-VS_detect:  MIB 0x00 _XPos                  ; setting crusor position
-            MIB 0x00 _YPos
+VS_detect:  
 VS_loop:    DEW VS_counter
             BEQ VS_exit
             LDB vsync ANI 0x40 CPI 0x00     ; test for VS bit
@@ -81,7 +80,6 @@ wrSN76489:  STB sn76489
 #org 0xfee0 sn76489: ; SN76489 data port (4HC574)
 #org 0xfee1 vsync:   ; 4HC574 input Kempston, bit6 = vsync
 #org 0xfee2 cs1sn:   ; bit 0 = 1 -> /CS = 0 | bit 0 = 0 -> /CS = 1, bit0 = sd-card bit1 = sn76489
-#org 0xfee3 spi:     ; address for reading and writing the spi shift register, writing starts the beat
 #org 0xf045 _Print:
 #org 0x00c0 _XPos:
 #org 0x00c1 _YPos:
