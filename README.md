@@ -6,6 +6,7 @@ This is a boot-up program for Minimal 64x4. It is testing the presence of an exp
     
 Initexp should be called by "autostart" file. 
 Parts of the code taken and reused from routines provided by Hans61 
+Please note this software will only work on revision 1.1 of Minimal 64x4
 
 Credits:
 
