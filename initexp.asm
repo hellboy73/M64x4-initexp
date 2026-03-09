@@ -8,7 +8,8 @@
 ;   *** Minimal64x4 computer by Slu4 https://github.com/slu4coder/Minimal-64x4-Home-Computer ***
 ;   ********************************************************************************************
 #org 0x2000
-start:  JPS VS_detect                       ; determine if VS signal can be read (i.e. expansion card present)
+start:  CLB vsync							; clearing potential random RAM values 
+		JPS VS_detect                       ; determine if VS signal can be read (i.e. expansion card present)
         LDB VS_present                      ; if VS_present is zero then exp board is not present
         CPI 0x00    BEQ Exp_not_present     ; no initialization needed, jump to the end
 Exp_present:                                ; Mute all audio channels:
@@ -26,6 +27,7 @@ Exp_present:                                ; Mute all audio channels:
         LDI 159 JAS wrSN76489               ; OFF TONE 1 0x9f
         MIZ 29 _YPos MIZ 0 _XPos JPS _Print "                   ", 0
 Exp_not_present:
+		INK
         RTS 
 
 ;   ***************************************************************
